@@ -73,12 +73,16 @@ app.delete("/repositories/:id", checkExistsRepository, (request, response) => {
   return response.status(204).send();
 });
 
-app.post("/repositories/:id/like", checkExistsRepository, (request, response) => {
-  const { repository } = request;
+app.post(
+  "/repositories/:id/like",
+  checkExistsRepository,
+  (request, response) => {
+    const { repository } = request;
 
-  repository.likes = repository.likes + 1;
+    repository.likes = repository.likes + 1;
 
-  return response.json(repository);
-});
+    return response.json(repository);
+  }
+);
 
 module.exports = app;
